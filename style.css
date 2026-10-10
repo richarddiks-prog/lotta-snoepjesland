@@ -29,3 +29,55 @@
   }
   #next { right: 8px; }
 }
+/* Verbeterde boekweergave op iPhone */
+@media (max-width: 760px) {
+  body {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding-bottom: 0;
+  }
+  .hero {
+    flex: none;
+    padding: 12px 12px 8px;
+  }
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  main {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    margin-bottom: calc(80px + env(safe-area-inset-bottom));
+  }
+  .reader {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    width: 100%;
+    margin: 0;
+    padding: 8px 10px 16px;
+  }
+  .picture {
+    min-height: 0;
+  }
+  .picture img {
+    max-height: 44dvh;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: calc(80px + env(safe-area-inset-bottom));
+    background: #fff8fc;
+    box-shadow: 0 -5px 20px #7b42652b;
+    z-index: 90;
+    pointer-events: none;
+  }
+  footer {
+    display: none;
+  }
+}
